@@ -8,6 +8,8 @@ export function getAll() {
     return sendRequest(BASE_URL);
 }
 
-export function createNote() {
-    return sendRequest(BASE_URL, 'POST');
+// To create the node, pass in the newNote state as a parameter
+export function createNote(newNote) {
+    // pass newNote as the payload
+    return sendRequest(BASE_URL,'POST', newNote);
 }

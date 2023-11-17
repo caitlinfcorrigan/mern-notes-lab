@@ -1,22 +1,22 @@
-const Notes = require('../../models/note');
+const Note = require('../../models/note');
 
 module.exports = {
-    index
+    index,
+    createNote
 }
 
-
+async function createNote(req,res) {
+    // console.log(req)
+    console.log(req.body);
+    const newNote = await new Note({text: req.body.text, user: req.user._id});
+    await newNote.save();
+}
 
 async function index(req, res) {
-    const notes = await Notes.find({user: req.user._id});  
+    const notes = await Note.find({user: req.user._id});  
     try {
-        console.log(req.user._id)
-        console.log(notes.length)
-        // if (notes.length === 0) {notes = null}
-        // console.log(`null notes ${notes}`)
         res.json(notes)
     } catch {
-        console.log('catch')
-
-
+        console.log(`Failed to retrieve user's notes`)
     }
 }

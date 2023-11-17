@@ -8,4 +8,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 // GET /api/notes for logged in user
 router.get('/', ensureLoggedIn, notesCtrl.index);
 
+router.post('/', ensureLoggedIn, notesCtrl.createNote);
+
 module.exports = router;
