@@ -1,9 +1,3 @@
 export default function Note({note, time}) {
-    const myTime = new Date(time)
-    return(
-        <div>
-            <li>{note}</li>
-        </div>
-
-    )
+    return <li>{time}<br></br>{note}</li>
 }

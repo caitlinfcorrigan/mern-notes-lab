@@ -18,7 +18,7 @@ export default function NotesPage({user, setUser}) {
     }, []);
 
     const myNote = notes.map((n, idx) => (
-        <Note note={n.text} time={n.updatedAt} key={'N' + idx} />
+        <Note note={n.text} time={n.createdAt} key={'N' + idx} />
     ))
 
     return(
