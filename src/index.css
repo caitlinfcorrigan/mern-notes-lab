@@ -28,12 +28,12 @@ code {
 /* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
-  --orange: #F67F00;
-  --text-light: #968c84;
+  --tan-1: #adc7e490;
+  --tan-2: #8bb5e490;
+  --tan-3: #75abe9b7;
+  --tan-4: #75abe9;
+  --orange: #198831;
+  --text-light: #198831a7;
   --text-dark: #615954;
 }
 

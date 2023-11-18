@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as notesAPI from "../../utilities/notes-api";
 
-export default function NewNote({ setNotes }) {
+export default function NewNote({ notes, setNotes }) {
     const [newNote, setNewNote] = useState({text:""});
 
     function handleTypeNote(e) {
@@ -14,8 +14,12 @@ export default function NewNote({ setNotes }) {
         e.preventDefault();
         console.log(newNote)
         await notesAPI.createNote(newNote);
-        // setNotes(...notesAPI, newNote)
-        setNewNote("");
+        // Updates state directly, not with mongo docs
+        setNotes([...notes, newNote])
+        // Update state
+
+        setNewNote({text: ""});
+        console.log("updated states")
     }
 
     return (

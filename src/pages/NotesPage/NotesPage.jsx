@@ -5,7 +5,7 @@ import * as notesAPI from "../../utilities/notes-api";
 
 export default function NotesPage({user, setUser}) {
     const [notes, setNotes] = useState([]);
-    // useEffect to synchronize with DB?
+    // useEffect to synchronize with DB
     useEffect(function() {
         async function getNotes() {
             const myNotes = await notesAPI.getAll();
@@ -18,19 +18,24 @@ export default function NotesPage({user, setUser}) {
     }, []);
 
     // Need to destructure notes and pass to Note
-    console.log(`my notes ${notes[0].text}`);
+    console.log(`my notes ${notes[0]}`);
 
-    const myNotesMap = notes.map((n, idx) => {
-        <Note note={n.text} key={idx} />
-    })
+    const myNote = notes.map((n, idx) => (
+        <Note note={n.text} time={n.updatedAt} key={'N' + idx} />
+    ))
+        // <Note note={n} key={'N' + idx} />
+        
+ 
+    // const myNote = [<li> Potato </li>,<li> Peas </li>]
 
     return(
         <div>
             <h1>My Notes</h1>
-            <NewNote setNotes={setNotes} />
+            <NewNote notes={notes} setNotes={setNotes} />
+            <h3>Existing Notes</h3>
             { notes ? 
             <ul>
-                {myNotesMap}
+                {myNote}
             </ul>
             :
             <p>No notes yet</p>

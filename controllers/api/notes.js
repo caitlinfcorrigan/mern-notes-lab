@@ -10,6 +10,7 @@ async function createNote(req,res) {
     console.log(req.body);
     const newNote = await new Note({text: req.body.text, user: req.user._id});
     await newNote.save();
+    res.json(newNote)
 }
 
 async function index(req, res) {

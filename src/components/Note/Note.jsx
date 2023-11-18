@@ -1,6 +1,5 @@
-export default function Note({note}) {
-    // console.log(typeof(notes))
-    const myNote = "note"
+export default function Note({note, time}) {
+    const myTime = new Date(time)
     return(
         <div>
             <li>{note}</li>
