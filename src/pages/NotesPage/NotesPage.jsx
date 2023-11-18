@@ -17,16 +17,9 @@ export default function NotesPage({user, setUser}) {
         getNotes();
     }, []);
 
-    // Need to destructure notes and pass to Note
-    console.log(`my notes ${notes[0]}`);
-
     const myNote = notes.map((n, idx) => (
         <Note note={n.text} time={n.updatedAt} key={'N' + idx} />
     ))
-        // <Note note={n} key={'N' + idx} />
-        
- 
-    // const myNote = [<li> Potato </li>,<li> Peas </li>]
 
     return(
         <div>

@@ -12,14 +12,9 @@ export default function NewNote({ notes, setNotes }) {
     // DB Event Handlers
     async function handleSubmit(e){
         e.preventDefault();
-        console.log(newNote)
-        await notesAPI.createNote(newNote);
-        // Updates state directly, not with mongo docs
-        setNotes([...notes, newNote])
-        // Update state
-
+        const doc = await notesAPI.createNote(newNote);
+        setNotes([...notes, doc])
         setNewNote({text: ""});
-        console.log("updated states")
     }
 
     return (
